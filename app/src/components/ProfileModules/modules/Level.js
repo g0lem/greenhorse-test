@@ -4,9 +4,9 @@ export default class Level extends React.Component{
 
     render(){
         return (
-            <div className="App">
+            <React.Fragment>
                 {this.props.level}
-            </div>
+            </React.Fragment>
         );
     }
   

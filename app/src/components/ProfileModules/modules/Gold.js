@@ -4,9 +4,9 @@ export default class Gold extends React.Component{
 
     render(){
         return (
-            <div className="App">
+            <React.Fragment>
                 {this.props.gold}
-            </div>
+            </React.Fragment>
         );
     }
   
