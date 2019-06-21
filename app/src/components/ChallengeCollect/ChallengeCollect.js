@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import axios from 'axios';
 
 const customStyles = {
     content : {
@@ -19,6 +20,7 @@ export default class ChallengeCollect extends React.Component {
 
         this.state = {
             modalIsOpen: false,
+            hasRewardBeenCollected: false,
         }
 
         this.openModal = this.openModal.bind(this);
@@ -30,7 +32,13 @@ export default class ChallengeCollect extends React.Component {
     }
 
     closeModal(){
-        this.setState({modalIsOpen: false});
+        const formData = new FormData();
+        formData.append('userId', this.props.userId);
+        axios.post(`http://greenhorsegames.com/tests/frontend/collect.php`, formData).then(res=>{
+            if(res.data.success){
+                this.setState({hasRewardBeenCollected: true, modalIsOpen: false});
+            }
+        });
     }
 
 

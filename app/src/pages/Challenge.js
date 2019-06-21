@@ -18,12 +18,15 @@ export default class Challenge extends React.Component {
         axios.get('http://greenhorsegames.com/tests/frontend/challenge.php').then(res=>{
             this.setState({...res.data});
         });
+        axios.get('http://greenhorsegames.com/tests/frontend/profile.php').then(res=>{
+            this.setState({userId: res.data.userId});
+        });
     }
 
     render(){
         return (
             <div className="App">
-                <ChallengeCollect uncollectedReward={this.state.uncollectedReward}/>
+                <ChallengeCollect uncollectedReward={this.state.uncollectedReward} userId={this.state.userId}/>
                 {
                     this.state.challengeGroup.map(elm=>(
                         <ChallengeGroupModules value={elm}>
