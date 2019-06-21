@@ -39,8 +39,7 @@ export default class ChallengeCollect extends React.Component {
             if(res.data.success){
                 const gold = Number.parseInt(ls('gold'));
                 const uncollectedRewardGold = Number.parseInt(this.props.uncollectedReward.reward);
-                const updatedCollectedGold = gold + uncollectedRewardGold;
-                ls('gold', updatedCollectedGold);
+                ls('gold', gold + uncollectedRewardGold);
                 this.setState({hasRewardBeenCollected: true, modalIsOpen: false});
             }
         });

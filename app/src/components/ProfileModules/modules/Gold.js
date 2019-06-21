@@ -15,7 +15,10 @@ export default class Gold extends React.Component{
         if(gold){
             return serverGold + gold;
         }
-        return serverGold;
+        else {
+            ls('gold', 0);
+            return serverGold;
+        }
     }
 
     render(){

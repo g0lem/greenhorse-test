@@ -28,8 +28,8 @@ export default class Challenge extends React.Component {
             <div className="App">
                 <ChallengeCollect uncollectedReward={this.state.uncollectedReward} userId={this.state.userId}/>
                 {
-                    this.state.challengeGroup.map(elm=>(
-                        <ChallengeGroupModules value={elm}>
+                    this.state.challengeGroup.map((elm, index)=>(
+                        <ChallengeGroupModules value={elm} key={`CHALLENGE_NUMBER_${index}`}>
                             <div>
                                 <ChallengeGroupModules.UserName/>
                                 <ChallengeGroupModules.Skill/>
