@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ChallengeGroupModules from '../components/ChallengeGroupModules/ChallengeGroupModules';
+import ChallengeCollect from '../components/ChallengeCollect/ChallengeCollect';
 
 export default class Challenge extends React.Component {
 
@@ -22,8 +23,7 @@ export default class Challenge extends React.Component {
     render(){
         return (
             <div className="App">
-                Muie x2
-
+                <ChallengeCollect uncollectedReward={this.state.uncollectedReward}/>
                 {
                     this.state.challengeGroup.map(elm=>(
                         <ChallengeGroupModules value={elm}>
