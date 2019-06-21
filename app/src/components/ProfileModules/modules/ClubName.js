@@ -4,9 +4,9 @@ export default class ClubName extends React.Component{
 
     render(){
         return (
-            <div className="App">
+            <React.Fragment>
                 {this.props.clubName}
-            </div>
+            </React.Fragment>
         );
     }
   

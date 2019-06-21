@@ -1,11 +1,27 @@
 import React from 'react';
+import ls from 'local-storage';
 
 export default class Gold extends React.Component{
+
+    constructor(props){
+        super(props);
+
+        this.getLocallyStoredGold = this.getLocallyStoredGold.bind(this);
+    }
+
+    getLocallyStoredGold(){
+        const gold = Number.parseInt(ls('gold'));
+        const serverGold = Number.parseInt(this.props.gold);
+        if(gold){
+            return serverGold + gold;
+        }
+        return serverGold;
+    }
 
     render(){
         return (
             <React.Fragment>
-                {this.props.gold}
+                {this.getLocallyStoredGold()}
             </React.Fragment>
         );
     }

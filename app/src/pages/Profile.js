@@ -10,7 +10,7 @@ export default class Profile extends React.Component{
         this.state = {
             userId: '',
             level: '',
-            gold: null,
+            gold: 0,
             userName: "",
             clubName: "",
             medals: [],
@@ -20,7 +20,14 @@ export default class Profile extends React.Component{
     componentDidMount(){
         axios.get('http://greenhorsegames.com/tests/frontend/profile.php').then(res=>{
             console.log(res.data);
-            this.setState({...res.data});
+            this.setState({
+                userId: res.data.userId,
+                level: res.data.level,
+                gold: Number.parseInt(res.data.gold),
+                userName: res.data.userName,
+                clubName: res.data.clubName,
+                medals: [],
+            });
         });
     }
 
@@ -30,6 +37,7 @@ export default class Profile extends React.Component{
                 <ProfileModules value={this.state}>
                     <ProfileModules.UserName/>
                     <ProfileModules.ClubName/>
+                    <ProfileModules.Gold/>
                 </ProfileModules>
             </div>
         );
