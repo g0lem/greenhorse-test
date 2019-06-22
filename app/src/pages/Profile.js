@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ProfileModules from '../components/ProfileModules/ProfileModules';
+import Header from '../components/Header';
 
 export default class Profile extends React.Component{
 
@@ -34,6 +35,10 @@ export default class Profile extends React.Component{
     render(){
         return (
             <div className="App">
+                <div>
+                    <Header level={this.state.level} gold={this.state.gold}/>
+                </div>
+                
                 <ProfileModules value={this.state}>
                     <ProfileModules.UserName/>
                     <ProfileModules.ClubName/>

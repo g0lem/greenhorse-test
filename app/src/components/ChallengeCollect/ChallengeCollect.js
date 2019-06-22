@@ -49,7 +49,8 @@ export default class ChallengeCollect extends React.Component {
     render(){
         return (
             <React.Fragment>
-                <button onClick={this.openModal}>OPEN</button>
+                <img src={'/images/box.png'}></img>
+                <button onClick={this.openModal}>COLLECT</button>
                 <div>
                     <Modal  isOpen={this.state.modalIsOpen}
                             contentLabel="Example Modal"
@@ -57,8 +58,12 @@ export default class ChallengeCollect extends React.Component {
                             style={customStyles}>
 
                         <React.Fragment>
-                            <div>
-                                {this.props.uncollectedReward.reward}
+                            <img src={'/images/box.png'}></img>
+                            Rewards:
+                            <div style={{color: 'green'}}>
+                        
+                                + {this.props.uncollectedReward.reward}
+                                <img src={'/images/gold.png'}></img>
                             </div>
                             <div>
                                 <button onClick={this.closeModal}>Collect</button>

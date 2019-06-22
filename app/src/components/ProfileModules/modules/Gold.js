@@ -24,6 +24,7 @@ export default class Gold extends React.Component{
     render(){
         return (
             <React.Fragment>
+                <img src={'/images/gold.png'}></img>
                 {this.getLocallyStoredGold()}
             </React.Fragment>
         );
